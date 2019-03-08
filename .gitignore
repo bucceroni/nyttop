@@ -1,4 +1,6 @@
 node_modules
 
+.env
+
 README_TW.md
 README_GIT.md
