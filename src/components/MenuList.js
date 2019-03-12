@@ -16,7 +16,7 @@ import IconWbIncandescent from "@material-ui/icons/WbIncandescent";
 import IconMemory from "@material-ui/icons/Memory";
 import IconLanguage from "@material-ui/icons/Language";
 //UTILS
-import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
+import capitalizeFirstLetter from "../utils/CapitalizeFirstLetter";
 
 const styles = {
   link: {
