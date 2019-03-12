@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
-
-import Template from './components/Template/Template'
-
-
+import React, { Component } from "react";
+//REACT ROUTER
+import { BrowserRouter as Router } from "react-router-dom";
+//ROUTES
+import Routes from "./Routes";
+//COMPONENTS
+import Template from "./components/Template/Template";
 class App extends Component {
-
   render() {
     return (
-      <Template/>
+      <Router>
+        <Template>
+          <Routes />
+        </Template>
+      </Router>
     );
   }
 }
