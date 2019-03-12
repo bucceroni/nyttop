@@ -8,24 +8,51 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+//ICONS
+import IconHome from "@material-ui/icons/Home";
+import IconFavoriteBorder from "@material-ui/icons/FavoriteBorder";
+import IconAccountBalance from "@material-ui/icons/AccountBalance";
+import IconWbIncandescent from "@material-ui/icons/WbIncandescent";
+import IconMemory from "@material-ui/icons/Memory";
+import IconLanguage from "@material-ui/icons/Language";
 //UTILS
-import capitalizeFirstLetter from "../utils/CapitalizeFirstLetter";
+import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
 
 const styles = {
   link: {
     textDecoration: "none"
+  },
+  icon: {
+    marginLeft: 7
   }
 };
 
 const MenuList = props => {
   const categories = [
-    "home",
-    "health",
-    "politics",
-    "science",
-    "technology",
-    "world"
+    {
+      name: "home",
+      icon: <IconHome />
+    },
+    {
+      name: "health",
+      icon: <IconFavoriteBorder />
+    },
+    {
+      name: "politics",
+      icon: <IconAccountBalance />
+    },
+    {
+      name: "science",
+      icon: <IconWbIncandescent />
+    },
+    {
+      name: "technology",
+      icon: <IconMemory />
+    },
+    {
+      name: "world",
+      icon: <IconLanguage />
+    }
   ];
 
   return (
@@ -34,14 +61,12 @@ const MenuList = props => {
         return (
           <Link
             className={props.classes.link}
-            to={`/${category === "home" ? "" : category}`}
+            to={`/${category.name === "home" ? "" : category.name}`}
             key={index}
           >
             <ListItem button>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary={capitalizeFirstLetter(category)} />
+              <ListItemIcon className={props.classes.icon}>{category.icon}</ListItemIcon>
+              <ListItemText primary={capitalizeFirstLetter(category.name)} />
             </ListItem>
           </Link>
         );

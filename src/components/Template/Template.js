@@ -54,7 +54,7 @@ class Template extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              TW - The New York Times - Top Stories
+              The New York Times - Top Stories
             </Typography>
           </Toolbar>
         </AppBar>

@@ -10,7 +10,6 @@ const styles = {
     flexGrow: 1
   }
 };
-
 class NotFound extends Component {
   render() {
     const { classes } = this.props;

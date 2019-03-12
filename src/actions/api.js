@@ -11,6 +11,6 @@ export default class getNews {
         }?api-key=${process.env.REACT_APP_TOKEN_NYTTOP}`
       )
       .then(res => res.data.results)
-      .catch(error => []);
+      .catch(() => []);
   }
 }

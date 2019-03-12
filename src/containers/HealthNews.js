@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-//MATERIAL UI
+//REACT ROUTER
 import { withRouter } from "react-router-dom";
+//MATERIAL UI
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 //COMPONENTS
@@ -18,7 +19,7 @@ const styles = {
   }
 };
 
-class Pages extends React.Component {
+class HealthNews extends React.Component {
   componentDidMount() {
     const { actions, match } = this.props;
     actions.getNews(match.path);
@@ -26,7 +27,6 @@ class Pages extends React.Component {
 
   render() {
     const { health, classes } = this.props;
-
     return (
       <div className={classes.root}>
         <Grid container spacing={24}>
@@ -35,7 +35,6 @@ class Pages extends React.Component {
               return (
                 <Grid item xs key={index}>
                   <NewsCard item={item} index={index} />
-                  />
                 </Grid>
               );
             })}
@@ -45,9 +44,9 @@ class Pages extends React.Component {
   }
 }
 
-Pages.propTypes = {
+HealthNews.propTypes = {
   classes: PropTypes.object.isRequired,
-  actions: PropTypes.any,
+  actions: PropTypes.object.isRequired,
   health: PropTypes.array.isRequired
 };
 
@@ -74,4 +73,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps
   )
-)(withRouter(Pages));
+)(withRouter(HealthNews));

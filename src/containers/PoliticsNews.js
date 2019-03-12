@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 //REACT ROUTER
-import { Link } from "react-router-dom";
-//MATERIAL UI
 import { withRouter } from "react-router-dom";
+//MATERIAL UI
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 //COMPONENTS
@@ -20,30 +19,22 @@ const styles = {
   }
 };
 
-class Pages extends React.Component {
+class PoliticsNews extends React.Component {
   componentDidMount() {
-    const { actions } = this.props;
-    actions.getNews(this.props.match.path);
+    const { actions, match } = this.props;
+    actions.getNews(match.path);
   }
 
-  handleDetailCard = (item, index) => {
-    return <Link to={`${item.section}/${index}`}>Detail</Link>;
-  };
-
   render() {
-    const { science, classes } = this.props;
-
+    const { politics, classes } = this.props;
     return (
       <div className={classes.root}>
         <Grid container spacing={24}>
-          {science &&
-            science.map((item, index) => {
+          {politics &&
+            politics.map((item, index) => {
               return (
                 <Grid item xs key={index}>
-                  <NewsCard
-                    item={item}
-                    detail={this.handleDetailCard(item, index)}
-                  />
+                  <NewsCard item={item} index={index} />
                 </Grid>
               );
             })}
@@ -53,15 +44,15 @@ class Pages extends React.Component {
   }
 }
 
-Pages.propTypes = {
+PoliticsNews.propTypes = {
   classes: PropTypes.object.isRequired,
-  actions: PropTypes.any,
-  science: PropTypes.array.isRequired
+  actions: PropTypes.object.isRequired,
+  politics: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => {
   return {
-    science: state.newsReducer.science
+    politics: state.newsReducer.politics
   };
 };
 
@@ -82,4 +73,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps
   )
-)(withRouter(Pages));
+)(withRouter(PoliticsNews));

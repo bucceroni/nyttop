@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 //REACT ROUTER
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+//MOMENT
+import moment from "moment";
 //MATERIAL UI
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -13,8 +15,8 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = {
   card: {
-    width: 350,
-    maxHeight: 500,
+    minWidth: 300,
+    maxHeight: 600,
     margin: 5
   },
   link: {
@@ -41,7 +43,9 @@ const NewsCard = props => {
           <CardMedia
             className={props.classes.media}
             image={
-              props.item.multimedia[0] ? props.item.multimedia[0].url : null
+              props.item.multimedia[2]
+                ? props.item.multimedia[2].url
+                : "http://www.vardan.in/assets/frontend/images/no-image.jpg"
             }
             title={props.item.title}
           />
@@ -49,7 +53,9 @@ const NewsCard = props => {
             <Typography gutterBottom variant="h5" component="h2">
               {props.item.title}
             </Typography>
-            <Typography component="p">{props.item.published_date}</Typography>
+            <Typography component="p">
+              Published date: {moment(props.item.published_date).format("LLL")}
+            </Typography>
             <Typography component="p">{props.item.byline}</Typography>
           </CardContent>
         </CardActionArea>
@@ -60,8 +66,7 @@ const NewsCard = props => {
 
 NewsCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  item: PropTypes.object,
-  detail: PropTypes.func
+  item: PropTypes.object
 };
 
 export default withRouter(withStyles(styles)(NewsCard));

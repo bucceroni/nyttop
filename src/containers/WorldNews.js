@@ -19,20 +19,19 @@ const styles = {
   }
 };
 
-class Pages extends React.Component {
+class WorldNews extends React.Component {
   componentDidMount() {
     const { actions, match } = this.props;
     actions.getNews(match.path);
   }
 
   render() {
-    const { home, classes } = this.props;
-
+    const { world, classes } = this.props;
     return (
       <div className={classes.root}>
         <Grid container spacing={24}>
-          {home &&
-            home.map((item, index) => {
+          {world &&
+            world.map((item, index) => {
               return (
                 <Grid item xs key={index}>
                   <NewsCard item={item} index={index} />
@@ -45,15 +44,15 @@ class Pages extends React.Component {
   }
 }
 
-Pages.propTypes = {
+WorldNews.propTypes = {
   classes: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
-  home: PropTypes.array.isRequired
+  world: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => {
   return {
-    home: state.newsReducer.home
+    world: state.newsReducer.world
   };
 };
 
@@ -74,4 +73,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps
   )
-)(withRouter(Pages));
+)(withRouter(WorldNews));
