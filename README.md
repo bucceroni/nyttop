@@ -1,10 +1,10 @@
 # nyttop
-ThoughtWorks - Frontend - React & Redux
+Frontend - React + Redux
 
 <hr>
 
 ## Descrição do Projeto
-Projeto de avaliação
+Página web que contenha as notícias mais importantes em ciências e tecnologia, saúde, política e mundo, consultando API do The New York Times, http://developer.nytimes.com/
 
 - Requisitos
 
@@ -43,12 +43,12 @@ Projeto de avaliação
 
 - API
 
-  - Obter um API Key para acessar as notícias do The New York Times - [Link](https://developer.nytimes.com/get-started)
+  - Gerar API Key para acessar as notícias do The New York Times - [Instruções](https://developer.nytimes.com/get-started)
   - Criar arquivo .env e adicionar código abaixo substituindo a API Key
   ```
   REACT_APP_TOKEN_NYTTOP = APIKey
   ```
-  - Adicionar .env no .gitignore
+  - Não esquecer de adicionar o arquivo .env no .gitignore
 
 - Inicie o projeto (Terminal)
   - `cd nyttop`
@@ -58,10 +58,10 @@ Projeto de avaliação
 
 <hr>
 
-### Web/ APP
+### Deploy
 
 - Heroku
   - Aplicação disponível em:
-  - [hthttps://nyttop.herokuapp.com/](https://nyttop.herokuapp.com/)
+  - [https://nyttop.herokuapp.com/](https://nyttop.herokuapp.com/)
 
 <hr>
