@@ -1,5 +1,5 @@
 # nyttop
-Frontend - React + Redux
+React + Redux
 
 <hr>
 
@@ -30,7 +30,7 @@ Página web que contenha as notícias mais importantes em ciências e tecnologia
 
   - [API - The New York Times](http://developer.nytimes.com/) 
 
-<hr >
+<hr>
 
 ## Iniciar projeto
 
@@ -58,7 +58,7 @@ Página web que contenha as notícias mais importantes em ciências e tecnologia
 
 <hr>
 
-### Deploy
+## Deploy
 
 - Heroku
   - Aplicação disponível em:
