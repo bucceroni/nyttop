@@ -1,12 +1,7 @@
 import * as types from "../actions/types";
 
 const initialState = {
-  home: [],
-  health: [],
-  politics: [],
-  science: [],
-  technology: [],
-  world: []
+  news: []
 };
 
 export default function reduce(state = initialState, action) {
@@ -16,32 +11,32 @@ export default function reduce(state = initialState, action) {
     case `${types.GET_HOME}`:
       return {
         ...state,
-        home: payload
+        news: payload
       };
     case `${types.GET_HEALTH}`:
       return {
         ...state,
-        health: payload
+        news: payload
       };
     case `${types.GET_POLITICS}`:
       return {
         ...state,
-        politics: payload
+        news: payload
       };
     case `${types.GET_SCIENCE}`:
       return {
         ...state,
-        science: payload
+        news: payload
       };
     case `${types.GET_TECHNOLOGY}`:
       return {
         ...state,
-        technology: payload
+        news: payload
       };
     case `${types.GET_WORLD}`:
       return {
         ...state,
-        world: payload
+        news: payload
       };
     default:
       return state;

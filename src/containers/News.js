@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 //REACT ROUTER
 import { withRouter } from "react-router-dom";
 //MATERIAL UI
-import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 //COMPONENTS
 import NewsCard from "../components/NewsCard";
@@ -11,13 +10,6 @@ import NewsCard from "../components/NewsCard";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../actions/actions";
-import compose from "recompose/compose";
-
-const styles = {
-  root: {
-    flexGrow: 1
-  }
-};
 
 class Home extends React.Component {
   componentDidMount() {
@@ -26,33 +18,37 @@ class Home extends React.Component {
   }
 
   render() {
-    const { home, classes } = this.props;
+    const { news } = this.props;
     return (
-      <div className={classes.root}>
-        <Grid container spacing={24}>
-          {home &&
-            home.map((item, index) => {
-              return (
-                <Grid item xs key={index}>
-                  <NewsCard item={item} index={index} />
-                </Grid>
-              );
-            })}
-        </Grid>
-      </div>
+      <Grid container spacing={24}>
+        {news &&
+          news.map((item, index) => {
+            return (
+              <Grid item xs key={index}>
+                <NewsCard item={item} index={index} />
+              </Grid>
+            );
+          })}
+      </Grid>
     );
+  }
+
+  componentDidUpdate(prevProps) {
+    const { actions, match } = this.props;
+    if (this.props.match.path !== prevProps.match.path) {
+      actions.getNews(match.path);
+    }
   }
 }
 
 Home.propTypes = {
-  classes: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-  home: PropTypes.array.isRequired
+  news: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
   return {
-    home: state.newsReducer.home
+    news: state.newsReducer.news
   };
 };
 
@@ -67,10 +63,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default compose(
-  withStyles(styles),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(withRouter(Home));

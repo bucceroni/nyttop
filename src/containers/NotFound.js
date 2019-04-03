@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-//MATERIAL UI
+//REACT ROUTER
 import { withRouter } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
+//MATERIAL UI
 import Grid from "@material-ui/core/Grid";
 
-const styles = {
-  root: {
-    flexGrow: 1
-  }
-};
 class NotFound extends Component {
   render() {
     const { classes } = this.props;
@@ -29,4 +24,4 @@ NotFound.propTypes = {
   extra: PropTypes.string
 };
 
-export default withRouter(withStyles(styles)(NotFound));
+export default withRouter(NotFound);
